@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA4D3EEF2D6DEFD80099195D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FA4D3EEE2D6DEFD80099195D /* Swinject */; };
-		FA4D3EF12D6DEFD80099195D /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FA4D3EF02D6DEFD80099195D /* Swinject-Dynamic */; };
+		FA9387FD2D6E01A000F081AB /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FA9387FC2D6E01A000F081AB /* Swinject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA4D3EEF2D6DEFD80099195D /* Swinject in Frameworks */,
-				FA4D3EF12D6DEFD80099195D /* Swinject-Dynamic in Frameworks */,
+				FA9387FD2D6E01A000F081AB /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,8 +72,7 @@
 			);
 			name = SeznamTask;
 			packageProductDependencies = (
-				FA4D3EEE2D6DEFD80099195D /* Swinject */,
-				FA4D3EF02D6DEFD80099195D /* Swinject-Dynamic */,
+				FA9387FC2D6E01A000F081AB /* Swinject */,
 			);
 			productName = SeznamTask;
 			productReference = FA4D3E562D6DE0940099195D /* SeznamTask.app */;
@@ -106,7 +103,7 @@
 			mainGroup = FA4D3E4D2D6DE0940099195D;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				FA4D3EED2D6DEFD80099195D /* XCRemoteSwiftPackageReference "Swinject" */,
+				FA9387FB2D6E01A000F081AB /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FA4D3E572D6DE0940099195D /* Products */;
@@ -385,7 +382,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FA4D3EED2D6DEFD80099195D /* XCRemoteSwiftPackageReference "Swinject" */ = {
+		FA9387FB2D6E01A000F081AB /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
 			requirement = {
@@ -396,15 +393,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA4D3EEE2D6DEFD80099195D /* Swinject */ = {
+		FA9387FC2D6E01A000F081AB /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FA4D3EED2D6DEFD80099195D /* XCRemoteSwiftPackageReference "Swinject" */;
+			package = FA9387FB2D6E01A000F081AB /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
-		};
-		FA4D3EF02D6DEFD80099195D /* Swinject-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA4D3EED2D6DEFD80099195D /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = "Swinject-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
