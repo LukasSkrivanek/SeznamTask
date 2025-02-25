@@ -1,5 +1,5 @@
 //
-//  SeznamTaskTests.swift
+//  CoordinatorTests.swift
 //  SeznamTaskTests
 //
 //  Created by macbook on 25.02.2025.

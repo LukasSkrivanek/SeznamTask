@@ -12,6 +12,7 @@ struct SeznamTaskApp: App {
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
+                .environmentObject(DependencyContainer.resolve(Coordinator.self))
         }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Coordinator: ObservableObject {
+class Coordinator: Coordinating, ObservableObject {
     @Published var path: NavigationPath = .init()
     @Published var sheet: Sheet?
     @Published var fullScreenCover: FullScreenCover?
@@ -59,4 +59,20 @@ class Coordinator: ObservableObject {
         case .zero: DetailPage()
         }
     }
+}
+
+protocol Coordinating: ObservableObject {
+    var path: NavigationPath { get set }
+    var sheet: Sheet? { get set }
+    var fullScreenCover: FullScreenCover? { get set }
+
+    func push(page: AppPages)
+    func pop()
+    func popToRoot()
+
+    func presentSheet(_ sheet: Sheet)
+    func presentFullScreenCover(_ fullScreenCover: FullScreenCover)
+
+    func dismissSheet()
+    func dismissCover()
 }
