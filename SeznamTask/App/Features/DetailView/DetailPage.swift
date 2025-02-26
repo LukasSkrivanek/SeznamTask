@@ -48,7 +48,6 @@ struct DetailPage: View {
             }
             .padding()
         }
-        .navigationTitle("Detail knihy")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

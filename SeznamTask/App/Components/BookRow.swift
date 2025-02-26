@@ -35,10 +35,7 @@ struct BookRow: View {
                         .foregroundColor(.gray)
                         .lineLimit(4)
                 }
-
-                Spacer()
             }
-
             .padding(.vertical, 8)
         }
         .padding(.vertical, 8)

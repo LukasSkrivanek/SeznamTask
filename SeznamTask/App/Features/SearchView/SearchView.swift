@@ -49,11 +49,15 @@ struct SearchView: View {
                             .font(.headline)
                         Spacer()
                     } else {
-                        ContentUnavailableView(
-                            "Žádné knihy nenalezeny",
-                            systemImage: "magnifyingglass",
-                            description: Text("Zkuste změnit vyhledávací kritéria.")
-                        )
+                        if #available(iOS 17, *) {
+                            ContentUnavailableView(
+                                "Žádné knihy nenalezeny",
+                                systemImage: "magnifyingglass",
+                                description: Text("Zkuste změnit vyhledávací kritéria.")
+                            )
+                        } else {
+                            Text("Žádné knihy nenalezeny")
+                        }
                     }
                 } else {
                     List(viewModel.books, id: \.hashValue) { book in
@@ -62,11 +66,12 @@ struct SearchView: View {
                         }) {
                             BookRow(book: book)
                                 .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-                                .listRowBackground(Color.clear)
+                                .listRowBackground(Color(uiColor: .darkGray))
                                 .padding(.horizontal, 4)
+                                .padding(.vertical)
                         }
                     }
-                    .listStyle(PlainListStyle())
+                    .listStyle(InsetListStyle())
                 }
             }
             .navigationTitle("Vyhledat knihy")
