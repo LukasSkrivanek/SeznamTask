@@ -13,16 +13,8 @@ struct DetailPage: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                AsyncImage(url: URL(string: book.thumbnail)) { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: .infinity, maxHeight: 300)
-                        .cornerRadius(8)
-                } placeholder: {
-                    ProgressView()
-                        .frame(maxWidth: .infinity, maxHeight: 300)
-                }
+                ImageLoader(imageURL: book.thumbnail)
+                    .frame(maxHeight: 300)
                 Text(book.title)
                     .font(.largeTitle)
                     .bold()

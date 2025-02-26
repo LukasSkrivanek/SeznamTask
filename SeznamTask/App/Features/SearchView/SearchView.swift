@@ -49,11 +49,11 @@ struct SearchView: View {
                             .font(.headline)
                         Spacer()
                     } else {
-                        Spacer()
-                        Text("Žádné knihy nenalezeny")
-                            .font(.headline)
-                            .foregroundColor(.gray)
-                        Spacer()
+                        ContentUnavailableView(
+                            "Žádné knihy nenalezeny",
+                            systemImage: "magnifyingglass",
+                            description: Text("Zkuste změnit vyhledávací kritéria.")
+                        )
                     }
                 } else {
                     List(viewModel.books, id: \.hashValue) { book in
@@ -69,7 +69,6 @@ struct SearchView: View {
                     .listStyle(PlainListStyle())
                 }
             }
-            .animation(.easeInOut(duration: 0.3), value: viewModel.books)
             .navigationTitle("Vyhledat knihy")
             .alert(isPresented: $viewModel.showError) {
                 Alert(

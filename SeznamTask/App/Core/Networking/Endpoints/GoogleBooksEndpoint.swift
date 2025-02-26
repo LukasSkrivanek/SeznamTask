@@ -7,6 +7,24 @@
 
 import Foundation
 
+class APIKeyManager {
+    static let shared = APIKeyManager()
+
+    private(set) var apiKey: String?
+
+    private init() {
+        loadAPIKey()
+    }
+
+    private func loadAPIKey() {
+        if let apiKey = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
+            self.apiKey = apiKey
+        } else {
+            print("API Key not found")
+        }
+    }
+}
+
 struct GoogleBooksEndpoint: Endpoint {
     var baseURL: URL {
         URL(string: "https://www.googleapis.com/books/v1")!
@@ -28,7 +46,7 @@ struct GoogleBooksEndpoint: Endpoint {
         [
             "q": author,
             "langRestrict": "cs",
-            "key": "AIzaSyDy4zbINh8lSmv6EFq7BYd3NMW10tMoh6A",
+            "key": APIKeyManager.shared.apiKey!,
         ]
     }
 
