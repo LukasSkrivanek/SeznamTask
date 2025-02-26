@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FA9387FD2D6E01A000F081AB /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FA9387FC2D6E01A000F081AB /* Swinject */; };
+		FA9389482D6E220100F081AB /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FA9389472D6E220100F081AB /* SDWebImageSwiftUI */; };
+		FA9389FF2D6F2A2400F081AB /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = FA9389FE2D6F2A2400F081AB /* Config.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,11 +25,25 @@
 /* Begin PBXFileReference section */
 		FA4D3E562D6DE0940099195D /* SeznamTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeznamTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4D3F1F2D6DFEF50099195D /* SeznamTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeznamTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA9389FE2D6F2A2400F081AB /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FA938A012D6F45C200F081AB /* Exceptions for "SeznamTask" folder in "SeznamTask" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = FA4D3E552D6DE0940099195D /* SeznamTask */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		FA4D3E582D6DE0940099195D /* SeznamTask */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				FA938A012D6F45C200F081AB /* Exceptions for "SeznamTask" folder in "SeznamTask" target */,
+			);
 			path = SeznamTask;
 			sourceTree = "<group>";
 		};
@@ -43,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9389482D6E220100F081AB /* SDWebImageSwiftUI in Frameworks */,
 				FA9387FD2D6E01A000F081AB /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +77,7 @@
 		FA4D3E4D2D6DE0940099195D = {
 			isa = PBXGroup;
 			children = (
+				FA9389FE2D6F2A2400F081AB /* Config.xcconfig */,
 				FA4D3E582D6DE0940099195D /* SeznamTask */,
 				FA4D3F202D6DFEF50099195D /* SeznamTaskTests */,
 				FA4D3E572D6DE0940099195D /* Products */,
@@ -98,6 +116,7 @@
 			name = SeznamTask;
 			packageProductDependencies = (
 				FA9387FC2D6E01A000F081AB /* Swinject */,
+				FA9389472D6E220100F081AB /* SDWebImageSwiftUI */,
 			);
 			productName = SeznamTask;
 			productReference = FA4D3E562D6DE0940099195D /* SeznamTask.app */;
@@ -156,6 +175,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				FA9387FB2D6E01A000F081AB /* XCRemoteSwiftPackageReference "Swinject" */,
+				FA9389462D6E220100F081AB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FA4D3E572D6DE0940099195D /* Products */;
@@ -173,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9389FF2D6F2A2400F081AB /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +406,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SeznamTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -415,6 +437,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SeznamTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -510,6 +533,14 @@
 				minimumVersion = 2.9.1;
 			};
 		};
+		FA9389462D6E220100F081AB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -517,6 +548,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA9387FB2D6E01A000F081AB /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		FA9389472D6E220100F081AB /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA9389462D6E220100F081AB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

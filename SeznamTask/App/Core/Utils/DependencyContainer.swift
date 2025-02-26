@@ -17,6 +17,11 @@ class DependencyContainer {
         container.register(Coordinator.self) { _ in
             Coordinator()
         }.inObjectScope(.container)
+        container.register(BooksViewModel.self) { _ in
+            MainActor.assumeIsolated {
+                BooksViewModel()
+            }
+        }.inObjectScope(.container)
     }
 
     static func resolve<T>(_ type: T.Type) -> T {

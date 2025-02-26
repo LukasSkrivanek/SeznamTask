@@ -48,7 +48,7 @@ class Coordinator: Coordinating, ObservableObject {
     func build(page: AppPages) -> some View {
         switch page {
         case .searchPage: SearchView()
-        case .detailPage: DetailPage()
+        case let .detailPage(book): DetailPage(book: book)
         }
     }
 
@@ -56,7 +56,7 @@ class Coordinator: Coordinating, ObservableObject {
     @ViewBuilder
     func build(sheet: Sheet) -> some View {
         switch sheet {
-        case .zero: DetailPage()
+        case .zero: SearchView()
         }
     }
 }

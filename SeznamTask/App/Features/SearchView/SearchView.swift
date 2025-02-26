@@ -9,28 +9,74 @@ import SwiftUI
 
 struct SearchView: View {
     @EnvironmentObject private var coordinator: Coordinator
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-            Button {
-                coordinator.push(page: .detailPage(0))
-            } label: {
-                Text("Push")
-            }
+    @EnvironmentObject private var viewModel: BooksViewModel
 
-            Button {
-                coordinator.presentSheet(.zero)
-            } label: {
-                Text("Sheet")
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 16) {
+                HStack {
+                    TextField("Zadejte autora", text: $viewModel.textfieldText, onCommit: {
+                        Task {
+                            await viewModel.fetchBooks()
+                        }
+                    })
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .padding(.horizontal)
+
+                    if viewModel.isLoading {
+                        ProgressView()
+                            .padding(.trailing, 8)
+                    } else {
+                        CircleButton(
+                            systemName: "magnifyingglass",
+                            foregroundColor: .white,
+                            backgroundColor: .blue
+                        ) {
+                            Task {
+                                await viewModel.fetchBooks()
+                            }
+                        }
+                        .padding(.trailing, 8)
+                    }
+                }
+                .padding(.top, 16)
+                if viewModel.books.isEmpty {
+                    if viewModel.isLoading {
+                        Spacer()
+                        ProgressView("Načítání knih...")
+                            .font(.headline)
+                        Spacer()
+                    } else {
+                        ContentUnavailableView(
+                            "Žádné knihy nenalezeny",
+                            systemImage: "magnifyingglass",
+                            description: Text("Zkuste změnit vyhledávací kritéria.")
+                        )
+                    }
+                } else {
+                    List(viewModel.books, id: \.hashValue) { book in
+                        Button(action: {
+                            coordinator.push(page: .detailPage(book))
+                        }) {
+                            BookRow(book: book)
+                                .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                                .listRowBackground(Color.clear)
+                                .padding(.horizontal, 4)
+                        }
+                    }
+                    .listStyle(PlainListStyle())
+                }
+            }
+            .navigationTitle("Vyhledat knihy")
+            .alert(isPresented: $viewModel.showError) {
+                Alert(
+                    title: Text("Chyba"),
+                    message: Text(viewModel.errorMessage ?? ""),
+                    dismissButton: .default(Text("OK"))
+                )
             }
         }
-        .padding()
     }
-}
-
-#Preview {
-    SearchView()
 }
