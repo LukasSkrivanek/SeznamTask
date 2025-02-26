@@ -9,7 +9,7 @@ import Foundation
 
 enum AppPages: Hashable {
     case searchPage
-    case detailPage(Int)
+    case detailPage(Book)
 }
 
 enum Sheet: String, Identifiable {

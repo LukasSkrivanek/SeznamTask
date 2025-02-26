@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA9387FD2D6E01A000F081AB /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = FA9387FC2D6E01A000F081AB /* Swinject */; };
+		FA9389482D6E220100F081AB /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FA9389472D6E220100F081AB /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9389482D6E220100F081AB /* SDWebImageSwiftUI in Frameworks */,
 				FA9387FD2D6E01A000F081AB /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +100,7 @@
 			name = SeznamTask;
 			packageProductDependencies = (
 				FA9387FC2D6E01A000F081AB /* Swinject */,
+				FA9389472D6E220100F081AB /* SDWebImageSwiftUI */,
 			);
 			productName = SeznamTask;
 			productReference = FA4D3E562D6DE0940099195D /* SeznamTask.app */;
@@ -156,6 +159,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				FA9387FB2D6E01A000F081AB /* XCRemoteSwiftPackageReference "Swinject" */,
+				FA9389462D6E220100F081AB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FA4D3E572D6DE0940099195D /* Products */;
@@ -510,6 +514,14 @@
 				minimumVersion = 2.9.1;
 			};
 		};
+		FA9389462D6E220100F081AB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -517,6 +529,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA9387FB2D6E01A000F081AB /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		FA9389472D6E220100F081AB /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA9389462D6E220100F081AB /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
