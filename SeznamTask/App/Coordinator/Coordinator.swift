@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Coordinator: Coordinating, ObservableObject {
+final class Coordinator: Coordinating, ObservableObject {
     @Published var path: NavigationPath = .init()
     @Published var sheet: Sheet?
     @Published var fullScreenCover: FullScreenCover?

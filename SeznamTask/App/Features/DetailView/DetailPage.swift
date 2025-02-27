@@ -31,19 +31,16 @@ struct DetailPage: View {
                         .lineLimit(nil)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                Button(action: {
-                    UIApplication.shared.open(URL(string: book.infoLink)!)
-                }) {
-                    Text("Otevřít v Google Play")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(8)
-                }
-                .padding(.top, 16)
-
+                Text("Otevřít v Google Play")
+                    .anyButton(.plain, action: {
+                        UIApplication.shared.open(URL(string: book.infoLink)!)
+                    })
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(8)
                 Spacer()
             }
             .padding()

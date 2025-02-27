@@ -7,7 +7,7 @@
 
 import Foundation
 
-class APIKeyManager {
+final class APIKeyManager {
     static let shared = APIKeyManager()
 
     private(set) var apiKey: String?
@@ -46,7 +46,7 @@ struct GoogleBooksEndpoint: Endpoint {
         [
             "q": author,
             "langRestrict": "cs",
-            "key": APIKeyManager.shared.apiKey!,
+            "key": APIKeyManager.shared.apiKey!
         ]
     }
 

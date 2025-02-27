@@ -11,7 +11,7 @@ protocol BooksRepository {
     func fetchBooks(for author: String) async throws -> [Book]
 }
 
-class BooksRepositoryImpl: BooksRepository {
+final class BooksRepositoryImpl: BooksRepository {
     private let networkManager = NetworkManager.shared
 
     func fetchBooks(for author: String) async throws -> [Book] {

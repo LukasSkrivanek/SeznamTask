@@ -8,7 +8,7 @@
 import SwiftUI
 import Swinject
 
-class DependencyContainer {
+final class DependencyContainer {
     static let shared = DependencyContainer()
     let container: Container
     private init() {
