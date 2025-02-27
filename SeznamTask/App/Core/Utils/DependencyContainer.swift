@@ -17,8 +17,11 @@ final class DependencyContainer {
         container.register(Coordinator.self) { _ in
             Coordinator()
         }.inObjectScope(.container)
-        container.register(BooksRepository.self) { _ in
-            BooksRepositoryImpl()
+        container.register(NetworkManager.self) { _ in
+            NetworkManager()
+        }
+        container.register(BooksRepository.self) { resolve in
+            BooksRepositoryImpl(networkManager: resolve.resolve(NetworkManager.self)!)
         }.inObjectScope(.container)
         container.register(BooksViewModel.self) { resolve in
             MainActor.assumeIsolated {

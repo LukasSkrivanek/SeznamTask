@@ -12,11 +12,10 @@ protocol NetworkManaging {
 }
 
 final class NetworkManager: NetworkManaging {
-    static let shared = NetworkManager()
     private let session: URLSession
     private let cache: URLCache = .shared
 
-    private init(session: URLSession = .shared) {
+    init(session: URLSession = .shared) {
         self.session = session
     }
 
