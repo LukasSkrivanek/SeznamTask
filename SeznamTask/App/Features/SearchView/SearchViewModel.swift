@@ -16,39 +16,28 @@ final class BooksViewModel: ObservableObject {
     @Published var showError: Bool = false
     private let booksRepository: BooksRepository
 
-    init(booksRepository: BooksRepository = BooksRepositoryImpl()) {
+    init(booksRepository: BooksRepository) {
         self.booksRepository = booksRepository
     }
 
     func fetchBooks() async {
         guard !textfieldText.isEmpty else {
-            DispatchQueue.main.async {
-                self.errorMessage = "Zadejte jméno autora."
-                self.showError = true
-            }
+            errorMessage = "Zadejte jméno autora."
+            showError = true
             return
         }
 
-        DispatchQueue.main.async {
-            self.isLoading = true
-        }
+        isLoading = true
 
         do {
             let fetchedBooks = try await booksRepository.fetchBooks(for: textfieldText)
-            DispatchQueue.main.async {
-                self.books = fetchedBooks
-                self.errorMessage = nil
-                self.showError = false
-            }
+            books = fetchedBooks
+            errorMessage = nil
+            showError = false
         } catch {
-            DispatchQueue.main.async {
-                self.errorMessage = error.localizedDescription
-                self.showError = true
-            }
+            errorMessage = error.localizedDescription
+            showError = true
         }
-
-        DispatchQueue.main.async {
-            self.isLoading = false
-        }
+        isLoading = false
     }
 }

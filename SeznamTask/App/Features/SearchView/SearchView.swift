@@ -61,15 +61,11 @@ struct SearchView: View {
                     }
                 } else {
                     List(viewModel.books, id: \.hashValue) { book in
-                        Button(action: {
-                            coordinator.push(page: .detailPage(book))
-                        }) {
-                            BookRow(book: book)
-                                .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
-                                .listRowBackground(Color(uiColor: .darkGray))
-                                .padding(.horizontal, 4)
-                                .padding(.vertical)
-                        }
+                        BookRow(book: book)
+                            .anyButton {
+                                coordinator.push(page: .detailPage(book))
+                            }
+                            .listRowInsets(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
                     }
                     .listStyle(InsetListStyle())
                 }

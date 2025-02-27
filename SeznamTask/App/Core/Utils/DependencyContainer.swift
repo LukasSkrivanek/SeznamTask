@@ -17,9 +17,12 @@ final class DependencyContainer {
         container.register(Coordinator.self) { _ in
             Coordinator()
         }.inObjectScope(.container)
-        container.register(BooksViewModel.self) { _ in
+        container.register(BooksRepository.self) { _ in
+            BooksRepositoryImpl()
+        }.inObjectScope(.container)
+        container.register(BooksViewModel.self) { resolve in
             MainActor.assumeIsolated {
-                BooksViewModel()
+                BooksViewModel(booksRepository: resolve.resolve(BooksRepository.self)!)
             }
         }.inObjectScope(.container)
     }
