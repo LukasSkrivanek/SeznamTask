@@ -35,6 +35,7 @@ struct SearchView: View {
                     ) {
                         Task {
                             await viewModel.fetchBooks()
+                            hideKeyboard()
                         }
                     }
                     .padding(.trailing, 8)

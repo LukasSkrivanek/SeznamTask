@@ -26,6 +26,7 @@ final class NetworkManager: NetworkManaging {
         if let cachedResponse = cache.cachedResponse(for: request),
            let decodedData = try? JSONDecoder().decode(T.self, from: cachedResponse.data)
         {
+            print("Data returned from cache")
             return decodedData
         }
 
