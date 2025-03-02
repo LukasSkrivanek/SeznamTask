@@ -1,5 +1,5 @@
 //
-//  SearchView.swift
+//  BookListView.swift
 //  SeznamTask
 //
 //  Created by macbook on 25.02.2025.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct SearchView: View {
+struct BookListView: View {
     @EnvironmentObject private var coordinator: Coordinator
-    @EnvironmentObject private var viewModel: BooksViewModel
+    @EnvironmentObject private var viewModel: BookListViewModel
 
     var body: some View {
         VStack(spacing: 16) {

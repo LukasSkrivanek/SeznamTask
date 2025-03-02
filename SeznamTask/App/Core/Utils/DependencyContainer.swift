@@ -23,9 +23,9 @@ final class DependencyContainer {
         container.register(BooksRepository.self) { resolve in
             BooksRepositoryImpl(networkManager: resolve.resolve(NetworkManager.self)!)
         }.inObjectScope(.container)
-        container.register(BooksViewModel.self) { resolve in
+        container.register(BookListViewModel.self) { resolve in
             MainActor.assumeIsolated {
-                BooksViewModel(booksRepository: resolve.resolve(BooksRepository.self)!)
+                BookListViewModel(booksRepository: resolve.resolve(BooksRepository.self)!)
             }
         }.inObjectScope(.container)
     }

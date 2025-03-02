@@ -1,5 +1,5 @@
 //
-//  DetailPage.swift
+//  DetailView.swift
 //  SeznamTask
 //
 //  Created by macbook on 25.02.2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailPage: View {
+struct DetailView: View {
     let book: Book
 
     var body: some View {
@@ -50,7 +50,7 @@ struct DetailPage: View {
 }
 
 #Preview {
-    DetailPage(
+    DetailView(
         book: Book(
             title: "",
             authors: [],

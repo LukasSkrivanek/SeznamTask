@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-final class BooksViewModel: ObservableObject {
+final class BookListViewModel: ObservableObject {
     @Published var books: [Book] = []
     @Published var textfieldText: String = ""
     @Published var isLoading: Bool = false
