@@ -13,7 +13,8 @@ struct SeznamTaskApp: App {
         WindowGroup {
             CoordinatorView()
                 .environmentObject(DependencyContainer.resolve(Coordinator.self))
-                .environmentObject(DependencyContainer.resolve(BooksViewModel.self))
+                .environmentObject(DependencyContainer.resolve(BookListViewModel.self))
+                .environmentObject(DependencyContainer.resolve(AppState.self))
         }
     }
 }

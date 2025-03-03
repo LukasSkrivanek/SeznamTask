@@ -11,12 +11,16 @@ protocol BooksRepository {
     func fetchBooks(for author: String) async throws -> [Book]
 }
 
-class BooksRepositoryImpl: BooksRepository {
-    private let networkManager = NetworkManager.shared
+final class BooksRepositoryImpl: BooksRepository {
+    private var networkManager: NetworkManaging
+
+    init(networkManager: NetworkManaging) {
+        self.networkManager = networkManager
+    }
 
     func fetchBooks(for author: String) async throws -> [Book] {
         let endpoint = GoogleBooksEndpoint(author: "inauthor:\(author)")
-        let fetchedBooksDTO: GoogleBooksResponseDTO = try await networkManager.fetch(from: endpoint)
+        let fetchedBooksDTO: GoogleBooksResponseDTO = try await networkManager.fetch(from: endpoint, retries: 3)
         guard let items = fetchedBooksDTO.items else {
             return []
         }

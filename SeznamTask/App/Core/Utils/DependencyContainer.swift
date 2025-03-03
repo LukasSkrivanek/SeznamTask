@@ -8,7 +8,7 @@
 import SwiftUI
 import Swinject
 
-class DependencyContainer {
+final class DependencyContainer {
     static let shared = DependencyContainer()
     let container: Container
     private init() {
@@ -17,9 +17,23 @@ class DependencyContainer {
         container.register(Coordinator.self) { _ in
             Coordinator()
         }.inObjectScope(.container)
-        container.register(BooksViewModel.self) { _ in
+        container.register(NetworkManager.self) { _ in
+            NetworkManager()
+        }
+        container.register(BooksRepository.self) { resolve in
+            BooksRepositoryImpl(networkManager: resolve.resolve(NetworkManager.self)!)
+        }.inObjectScope(.container)
+        container.register(BookListViewModel.self) { resolve in
             MainActor.assumeIsolated {
-                BooksViewModel()
+                BookListViewModel(
+                    booksRepository: resolve.resolve(BooksRepository.self)!,
+                    appState: resolve.resolve(AppState.self)!
+                )
+            }
+        }.inObjectScope(.container)
+        container.register(AppState.self) { _ in
+            MainActor.assumeIsolated {
+                AppState()
             }
         }.inObjectScope(.container)
     }
