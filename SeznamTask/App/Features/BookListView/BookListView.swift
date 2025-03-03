@@ -10,6 +10,7 @@ import SwiftUI
 struct BookListView: View {
     @EnvironmentObject private var coordinator: Coordinator
     @EnvironmentObject private var viewModel: BookListViewModel
+    @EnvironmentObject private var appState: AppState
 
     var body: some View {
         VStack(spacing: 16) {
@@ -24,7 +25,7 @@ struct BookListView: View {
                 .autocapitalization(.none)
                 .padding(.horizontal)
 
-                if viewModel.isLoading {
+                if appState.isLoading {
                     ProgressView()
                         .padding(.trailing, 8)
                 } else {
@@ -43,7 +44,7 @@ struct BookListView: View {
             }
             .padding(.top, 16)
             if viewModel.books.isEmpty {
-                if viewModel.isLoading {
+                if appState.isLoading {
                     Spacer()
                     ProgressView("Načítání knih...")
                         .font(.headline)
@@ -65,6 +66,7 @@ struct BookListView: View {
                         .anyButton {
                             coordinator.push(page: .detailPage(book))
                         }
+                        .redacted(reason: appState.isLoading ? .placeholder : [])
                         .listRowInsets(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
                 }
                 .listStyle(InsetListStyle())

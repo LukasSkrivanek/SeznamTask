@@ -25,7 +25,15 @@ final class DependencyContainer {
         }.inObjectScope(.container)
         container.register(BookListViewModel.self) { resolve in
             MainActor.assumeIsolated {
-                BookListViewModel(booksRepository: resolve.resolve(BooksRepository.self)!)
+                BookListViewModel(
+                    booksRepository: resolve.resolve(BooksRepository.self)!,
+                    appState: resolve.resolve(AppState.self)!
+                )
+            }
+        }.inObjectScope(.container)
+        container.register(AppState.self) { _ in
+            MainActor.assumeIsolated {
+                AppState()
             }
         }.inObjectScope(.container)
     }

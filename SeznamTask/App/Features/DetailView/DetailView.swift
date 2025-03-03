@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
+    @EnvironmentObject private var appState: AppState
     let book: Book
 
     var body: some View {
@@ -43,6 +44,7 @@ struct DetailView: View {
                     .cornerRadius(8)
                 Spacer()
             }
+            .redacted(reason: appState.isLoading ? .placeholder : [])
             .padding()
         }
         .navigationBarTitleDisplayMode(.inline)

@@ -1,5 +1,5 @@
 //
-//  SearchViewModel.swift
+//  BookListViewModel.swift
 //  SeznamTask
 //
 //  Created by macbook on 25.02.2025.
@@ -11,13 +11,14 @@ import Foundation
 final class BookListViewModel: ObservableObject {
     @Published var books: [Book] = []
     @Published var textfieldText: String = ""
-    @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     @Published var showError: Bool = false
+    private let appState: AppState
     private let booksRepository: BooksRepository
 
-    init(booksRepository: BooksRepository) {
+    init(booksRepository: BooksRepository, appState: AppState) {
         self.booksRepository = booksRepository
+        self.appState = appState
     }
 
     func fetchBooks() async {
@@ -27,7 +28,7 @@ final class BookListViewModel: ObservableObject {
             return
         }
 
-        isLoading = true
+        appState.isLoading = true
 
         do {
             let fetchedBooks = try await booksRepository.fetchBooks(for: textfieldText)
@@ -38,6 +39,6 @@ final class BookListViewModel: ObservableObject {
             errorMessage = error.localizedDescription
             showError = true
         }
-        isLoading = false
+        appState.isLoading = false
     }
 }
