@@ -50,7 +50,20 @@ final class CoordinatorTests: XCTestCase {
     func test_PopToRoot_ShouldRemoveAllPages() {
         // Given
         coordinator.push(page: .searchPage)
-        coordinator.push(page: .detailPage(1))
+        coordinator
+            .push(
+                page: .detailPage(
+                    Book(
+                        title: "",
+                        authors: [""],
+                        thumbnail: "",
+                        description: "",
+                        publishedDate: "",
+                        infoLink: "String",
+                        imageLinks: ImageLinks(thumbnail: "")
+                    )
+                )
+            )
         XCTAssertEqual(coordinator.path.count, 2)
 
         // When

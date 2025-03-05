@@ -47,9 +47,9 @@
 			path = SeznamTask;
 			sourceTree = "<group>";
 		};
-		FA4D3F202D6DFEF50099195D /* SeznamTaskTests */ = {
+		FA4D3F202D6DFEF50099195D /* SeznamTaskUnitTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SeznamTaskTests;
+			path = SeznamTaskUnitTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -79,7 +79,7 @@
 			children = (
 				FA9389FE2D6F2A2400F081AB /* Config.xcconfig */,
 				FA4D3E582D6DE0940099195D /* SeznamTask */,
-				FA4D3F202D6DFEF50099195D /* SeznamTaskTests */,
+				FA4D3F202D6DFEF50099195D /* SeznamTaskUnitTests */,
 				FA4D3E572D6DE0940099195D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,7 +136,7 @@
 				FA4D3F242D6DFEF50099195D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				FA4D3F202D6DFEF50099195D /* SeznamTaskTests */,
+				FA4D3F202D6DFEF50099195D /* SeznamTaskUnitTests */,
 			);
 			name = SeznamTaskTests;
 			packageProductDependencies = (
