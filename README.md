@@ -15,7 +15,7 @@ Tento projekt je jednoduchá iOS aplikace vyvinutá ve **SwiftUI**, která umož
 
 - **iOS 16+**
 - **Xcode 14+**
-- **API klíč** (např. z Google Books API)
+- **API klíč** (z Google Books API)
 
 ## Jak spustit projekt
 
