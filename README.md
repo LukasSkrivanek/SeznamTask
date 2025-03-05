@@ -24,4 +24,4 @@ Tento projekt je jednoduchá iOS aplikace vyvinutá ve **SwiftUI**, která umož
 Nejprve naklonuj repozitář:
 ```bash
 git clone https://github.com/LukasSkrivanek/SeznamTask.git
-cd SeznamTask
+
