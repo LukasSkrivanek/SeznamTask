@@ -48,6 +48,7 @@ struct GoogleBooksEndpoint: Endpoint {
             "langRestrict": "cs",
             "key": APIKeyManager.shared.apiKey!,
             "maxResults": 40,
+            "orderBy": "relevance",
         ]
     }
 

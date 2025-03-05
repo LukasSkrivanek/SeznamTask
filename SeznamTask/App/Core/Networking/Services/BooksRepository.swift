@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol BooksRepository {
-    func fetchBooks(for author: String) async throws -> [Book]
-}
-
 final class BooksRepositoryImpl: BooksRepository {
     private var networkManager: NetworkManaging
 
